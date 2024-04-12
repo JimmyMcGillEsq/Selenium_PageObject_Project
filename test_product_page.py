@@ -5,6 +5,8 @@ import pytest
 import time
 
 @pytest.mark.need_review
+# Папраметризацию убрал специально, как и метод решения выражения, 
+# чтобы не запускалось куча ненужных тестов у вас.
 def test_guest_can_add_product_to_basket(browser):
 	link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207'
 	page = ProductPage(browser, link)
@@ -15,14 +17,16 @@ def test_guest_can_add_product_to_basket(browser):
 
 @pytest.mark.skip
 def test_should_be_right_name_in_cart(browser):
-	page = ProductPage(browser, link)
-	page.open()
-	page.click_add_to_cart_btn()
-	page.solve_quiz_and_get_code()
-	page.should_be_right_name_in_cart()
+    link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207'
+    page = ProductPage(browser, link)
+    page.open()
+    page.click_add_to_cart_btn()
+    page.solve_quiz_and_get_code()
+    page.should_be_right_name_in_cart()
 
 @pytest.mark.skip
 def test_should_be_right_price_in_cart(browser):
+    link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207'
     page = ProductPage(browser, link)
     page.open()
     page.click_add_to_cart_btn()
